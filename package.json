@@ -2,6 +2,7 @@
     "name": "fibre",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://eikcalb.github.io/fiberweb",
     "dependencies": {
         "@octokit/rest": "^16.28.7",
         "bulma": "^0.7.5",
