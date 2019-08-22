@@ -7,7 +7,7 @@ export function ErrorPage() {
     return (
         <div>
             <Toolbar />
-            <div className="section">
+            <div className="">
                 <div className='hero is-fullheight is-dark is-bold'>
                     <div className='hero-body'>
                         <div className='container has-text-left'>

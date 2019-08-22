@@ -4,7 +4,7 @@ import '../App.css';
 import { SortContext } from "./restaurant";
 
 
-export function User({ name, status, isFavorite, sortValue, makeFavorite, id }) {
+export function User({ login,id,avatarUrl,url,htmlUrl,reposUrl, status, isFavorite, sortValue, makeFavorite }) {
 
     return (
         <div className='card'>

@@ -3,13 +3,13 @@ import { FaHome } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 import { SearchBox } from '../pages/Search';
 
-export default function Toolbar({ triggerSearch, triggerSort }) {
+export default function Toolbar({ isNotFixed, triggerSearch, noShowSearch }) {
     let [isActive, updateActie] = React.useState(false)
     return (
-        <nav className={`navbar has-shadow is-centered is-fixed-top`}>
+        <nav className={`navbar has-shadow is-centered ${isNotFixed ? '' : 'is-fixed-top'}`}>
             <div className="navbar-brand">
                 <span className="navbar-item has-text-weight-bold">fibre</span>
-                <SearchBox />
+                {noShowSearch ? null : <span className='navbar-item'><SearchBox callback={triggerSearch} /></span>}
                 <span onClick={() => updateActie(!isActive)} className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}>
                     <span></span>
                     <span></span>
