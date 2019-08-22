@@ -8,7 +8,7 @@ export function ErrorPage() {
         <div>
             <Toolbar />
             <div className="">
-                <div className='hero is-fullheight is-dark is-bold'>
+                <div className='hero is-fullheight'>
                     <div className='hero-body'>
                         <div className='container has-text-left'>
                             <p className='title is-uppercase'><FaExclamationTriangle /> <br /> Not Found!</p>

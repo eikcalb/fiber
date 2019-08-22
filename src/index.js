@@ -7,7 +7,7 @@ import { ToastProvider } from 'react-toast-notifications'
 import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
-    <Router >
+    <Router basename='/fiberapp' >
         <ToastProvider placement='bottom-right' transitionDuration={250} >
             <App />
         </ToastProvider>
