@@ -30,7 +30,7 @@ export function Search({ data, totalCount, triggerSearch }) {
                                                 <div className="media">
                                                     <div className="media-left">
                                                         <NavLink to={`users/${user.login}`}>
-                                                            <figure className="image is-48x48">
+                                                            <figure className="image is-32x32">
                                                                 <img className='is-rounded' src={user.avatar_url} alt={user.login || 'John Doe'} />
                                                             </figure>
                                                         </NavLink>
@@ -41,7 +41,7 @@ export function Search({ data, totalCount, triggerSearch }) {
                                                         </NavLink>
                                                     </div>
                                                     <div className="media-right">
-                                                        <a title='View on Github' target='_blank' href={user.heml_url}><FaExternalLinkSquareAlt /></a>
+                                                        <a title='View on Github' target='_blank' href={user.html_url}><FaExternalLinkSquareAlt /></a>
                                                     </div>
                                                 </div>
                                             </div>
