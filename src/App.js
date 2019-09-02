@@ -36,15 +36,19 @@ class App extends React.Component {
                             )
                         }} />
 
-                        <Route exact path="/" render={() => <Search data={this.state.users} totalCount={this.state.totalCount} triggerSearch={async (q, page) => {
+                        <Route render={() => <Search data={this.state.users} totalCount={this.state.totalCount} triggerSearch={async (q, page) => {
                             if (q == "") return
-                            let res = await this.adapter.searchUsers(q, page)
+                            try {
+                                let res = await this.adapter.searchUsers(q, page)
+                                this.setState({ users: res.data.items, totalCount: res.data.total_count })
+                                console.log(res)
+                            } catch (e) {
+                                console.error(e)
+                                return Promise.reject(e)
+                            }
 
-                            this.setState({ users: res.data.items, totalCount: res.data.total_count })
-                            console.log(res)
                         }} />} />
 
-                        <Route component={ErrorPage} />
                     </Switch>
                 </div>
 

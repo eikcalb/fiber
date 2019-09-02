@@ -4,17 +4,19 @@ import { createDebouncer, AppContext } from "../App";
 import { FaSearch, FaExternalLinkSquareAlt } from "react-icons/fa";
 import { FiMeh } from "react-icons/fi";
 import { NavLink } from 'react-router-dom';
+import { useToasts } from "react-toast-notifications";
 
 
 export function Search({ data, totalCount, triggerSearch }) {
     let numPages = 1
+    let { addToast } = useToasts()
     if (totalCount > 100) {
         numPages = Number.parseInt((totalCount / 100).toFixed(0), 10)
     }
 
     return (
         <div>
-            <Toolbar triggerSearch={triggerSearch} />
+            <Toolbar triggerSearch={(query) => { return triggerSearch(query).catch(e => addToast(e.message, { color: 'error' })) }} />
             <div className="section">
                 <div className='hero is-fullheight is-bold'>
                     <div className='hero-head'>
@@ -35,9 +37,9 @@ export function Search({ data, totalCount, triggerSearch }) {
                                                             </figure>
                                                         </NavLink>
                                                     </div>
-                                                    <div className="media-content">
+                                                    <div className="media-content is-clipped">
                                                         <NavLink to={`users/${user.login}`}>
-                                                            <p className="title is-3">{user.login}</p>
+                                                            <p className="title is-4">{user.login}</p>
                                                         </NavLink>
                                                     </div>
                                                     <div className="media-right">

@@ -34,13 +34,13 @@ export function Collection({ collection }) {
                 <NavLink activeClassName='is-active' to={`/users/${collection.login}/${menus.followers}`}>Followers</NavLink>
                 <NavLink activeClassName='is-active' to={`/users/${collection.login}/${menus.starred}`}>Starred</NavLink>
             </p>
-            <Route path={`/users/${collection.login}/${menus.repos}`} render={(props) => {
+            <Route replace path={`/users/${collection.login}/${menus.repos}`} render={(props) => {
                 return collection.Repos.map(val => (
                     <Item icon={val.fork ? <FaCodeBranch /> : null} name={val.name} key={val.id} title={val.description} link={val.html_url} />
                 ))
             }} />
 
-            <Route path={`/users/${collection.login}/${menus.followings}`} render={(props) => {
+            <Route replace path={`/users/${collection.login}/${menus.followings}`} render={(props) => {
                 return collection.Followings.map(val => (
                     <Item icon={
                         <figure className="image is-32x32">
@@ -49,7 +49,7 @@ export function Collection({ collection }) {
                 ))
             }} />
 
-            <Route path={`/users/${collection.login}/${menus.followers}`} render={(props) => {
+            <Route replace path={`/users/${collection.login}/${menus.followers}`} render={(props) => {
                 return collection.Followers.map(val => (
                     <Item icon={
                         <figure className="image is-32x32">
@@ -58,7 +58,7 @@ export function Collection({ collection }) {
                 ))
             }} />
 
-            <Route path={`/users/${collection.login}/${menus.starred}`} render={(props) => {
+            <Route replace path={`/users/${collection.login}/${menus.starred}`} render={(props) => {
                 return collection.Starred.map(val => (
                     <Item icon={<FaStar />} name={val.name} key={val.id} link={val.html_url} />
                 ))
@@ -98,8 +98,8 @@ export default function ({ username }) {
                 <div className='section'>
                     <div className="media box">
                         <div className="media-left">
-                            <figure className="image is-48x48">
-                                <img src={user.avatar_url} alt={user.name || 'John Doe'} />
+                            <figure className="image is-rounded is-48x48">
+                                <img className='is-rounded' src={user.avatar_url} alt={user.name || 'John Doe'} />
                             </figure>
                         </div>
                         <div className="media-content">
